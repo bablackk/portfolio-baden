@@ -18,7 +18,7 @@ export default function Home() {
     setLoader(true);
     setTimeout(() => {
       setLoader(false);
-    }, 1000);
+    }, 2000);
   }, []);
 
   const [isMobile, setMobile] = useState<Boolean>(false);
