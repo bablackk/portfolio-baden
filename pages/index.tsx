@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
 import About from "../components/content/About";
 import Education from "../components/content/Education";
@@ -12,15 +10,7 @@ export default function Home() {
     width: 0,
     height: 0,
   });
-
-  const [loader, setLoader] = useState<Boolean>(false);
-  useEffect(() => {
-    setLoader(true);
-    setTimeout(() => {
-      setLoader(false);
-    }, 2000);
-  }, []);
-
+// responsive mobile menu
   const [isMobile, setMobile] = useState<Boolean>(false);
   useEffect(() => {
     const handleSize = () => {
@@ -41,6 +31,14 @@ export default function Home() {
       setMobile(false);
     }
   }, [windowSize]);
+
+  // handle preloader
+  const [loader, setLoader] = useState<Boolean>(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false)
+    },3000)
+  }, []);
 
   return (
     <>
